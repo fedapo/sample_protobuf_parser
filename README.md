@@ -37,7 +37,7 @@ using message = std::tuple
                 >;
 ```
 
-One could define similar `struct`s with the advantage over `std::tuple` of having named fields, but it would require some "glueing" code (based on Boost:Fusion) between the structures and the parser. Simplicity was preferred for this simple example.
+One could define similar `struct`s with the advantage over `std::tuple` of having named fields, but it would require some "glueing" code (based on Boost.Fusion) between the structures and the parser. Simplicity was preferred for this simple example.
 
 The sample application accepts a file name, containing the text to parse, from the command line. Then, the following actions are carried on.
 
@@ -48,24 +48,24 @@ The sample application accepts a file name, containing the text to parse, from t
 
 ## Building
 
-The sample application is based on Boost.Spirit library, this is a prerequisite. The library can be obtained in several ways.
+The sample application is based on the Boost.Spirit library; this is a prerequisite. The library can be obtained in several ways.
 
-### Installing Boost.Spirit from a Debian Linux distro.
+### Installing Boost.Spirit from a Debian Linux distro
 
 ```sh
 > sudo apt install libboost-dev
 ```
 
-### Installing Boost.Spirit from a Fedora Linux distro.
+### Installing Boost.Spirit from a Fedora Linux distro
 
 ```sh
 > sudo dnf install boost-devel
 ```
 
-### Installing Boost.Spirit using microsoft Vcpkg
+### Installing Boost.Spirit using vcpkg
 
-Vcpkg is an interesting package manager that allows to easily manage a large number of libraries both under Windows and Linux.
-Here's a quick list of commands to install vcpkg and Boost within.
+Vcpkg is an interesting open-source package manager from Microsoft that allows to easily manage a large number of libraries both under Windows and Linux.
+Here's a quick sequence of commands to install vcpkg and Boost within it.
 
 ```sh
 > git clone https://github.com/microsoft/vcpkg.git
@@ -76,16 +76,16 @@ Here's a quick list of commands to install vcpkg and Boost within.
 
 ### Building the sample code
 
-Once Boost.Spirit is installed. The example can be built with the following commands.
+Once Boost.Spirit is installed. The example can be cloned and built with the following commands.
 
 ```ch
 > git clone https://github.com/fedapo/sample_protobuf_parser.git
 > cd sample_protobuf_parser
-> cmake -B build build -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/vcpkg/scripts/buildsystems/vcpkg.cmake .
+> cmake -B build -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/vcpkg/scripts/buildsystems/vcpkg.cmake .
 > cmake --build build
 ```
 
-A prerequisite is having an environment variable pointing at the directory where vcpkg is installed.
+NOTE: You must have the environment variable `VCPKG_ROOT` pointing at the directory where vcpkg is installed.
 
 ### Running the sample code
 
@@ -94,3 +94,5 @@ The sample application is minimalist. This is all that is required after the ste
 ```sh
 > ./build/protobuf_parser sample1.proto
 ```
+
+At this point you can experiment with the capabilities of the sample application by creating new files to be parsed.
