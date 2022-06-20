@@ -78,13 +78,15 @@ namespace protobuf_grammar
 }
 
 template <class IT>
-bool protobuf_parse(IT it1, IT it2, protobuf_ast::message& ast)
+bool protobuf_parse(IT it1, IT it2, std::vector<protobuf_ast::message>& ast)
 {
   namespace x3 = boost::spirit::x3;
 
-  bool res = x3::phrase_parse(it1, it2, protobuf_grammar::message, x3::space, ast);
+  auto const Grammar = *protobuf_grammar::message;
 
-  if(!res)
+  bool res = x3::phrase_parse(it1, it2, Grammar, x3::space, ast);
+
+  if(!res || it1 != it2)
     throw protobuf_parse_exception();
 
   return res;

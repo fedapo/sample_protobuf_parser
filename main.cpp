@@ -37,10 +37,19 @@ int main(int argc, char* argv[])
 
   try
   {
-    protobuf_ast::message ast;
+    std::vector<protobuf_ast::message> ast;
     bool res = protobuf_parse(text.begin(), text.end(), ast);
 
-    cout << "Parsed. Echoing the result:\n" << ast << '\n';
+    if(res)
+    {
+      cout << "Parsed. Echoing the result:\n";
+      for(auto& el : ast)
+      {
+        cout << el << '\n';
+      }
+    }
+    else
+      cerr << "Parsing error.\n";
   }
   catch(protobuf_parse_exception const& e)
   {

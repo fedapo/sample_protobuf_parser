@@ -6,3 +6,15 @@ message Object
   repeated string tags = 3;
   optional double length = 4;
 }
+
+message Coords
+{
+  required double x = 0;
+  required double y = 1;
+}
+
+message PositionBookmark
+{
+  required string description = 0;
+  required Coords pos = 1;
+}

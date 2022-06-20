@@ -6,7 +6,7 @@ federico.aponte@gmail.com
 
 This is a sample implementation of a Protobuf parser using the Boost.Spirit X3 parsing library.
 
-At the moment the parser is very limited, it only parses a single Protobuf `message` object. This is a sample of the structure:
+At the moment the parser is very limited, it only parses Protobuf's `message` structures. This is a sample of the structure:
 
 ```proto
 message Object
@@ -19,7 +19,7 @@ message Object
 }
 ```
 
-The result of a successful parsing is an C++ `std::tuple` object - aliased as `message` - with the following structure.
+The result of a successful parsing is an `std::vector` of C++ `std::tuple` objects - aliased as `message` - with the following structure.
 
 ```c++
 using msg_field = std::tuple
