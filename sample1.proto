@@ -1,0 +1,8 @@
+message Object
+{
+  required uint32 id = 0;
+  required ObjType type = 1;
+  optional string name = 2;
+  repeated string tags = 3;
+  optional double length = 4;
+}
