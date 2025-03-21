@@ -4,6 +4,7 @@
 
 #include <boost/spirit/home/x3/support/ast/variant.hpp>
 
+#include <iostream>
 #include <tuple>
 #include <vector>
 #include <variant>

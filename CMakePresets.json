@@ -3,9 +3,7 @@
   "configurePresets": [
     {
       "name": "vcpkg",
-      "displayName": "vcpkg Config",
-      "description": "Build using vcpkg as a package manager",
-      "generator": "Unix Makefiles",
+      "generator": "Ninja",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
